@@ -30,3 +30,23 @@ form.addEventListener("submit", (e) => {
 });
 
 remove.addEventListener("click", removeFnc);
+
+// -------------------------------------------------------ES-2--------------------------------------------------------------
+
+let sec = 0;
+if (sessionStorage.getItem("timer")) {
+  sec = sessionStorage.getItem("timer");
+} else {
+  sec = 0;
+}
+
+const timer = () => {
+  sec++;
+  const p = document.getElementById("timer");
+
+  sessionStorage.setItem("timer", sec);
+
+  p.innerText = `${sec}`;
+};
+
+setInterval(timer, 1000);
